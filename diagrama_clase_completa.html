@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untold Festival App - Diagramă de Clase Completă</title>
+    
+    <!-- Mermaid.js pentru randarea diagramelor -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .instructions {
+            background: rgba(31, 41, 55, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            color: #a5b4fc;
+        }
+
+        .instructions strong {
+            color: #f8fafc;
+            background: #4f46e5;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .diagram-container {
+            width: 100%;
+            max-width: 1400px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow-x: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #error-display {
+            display: none;
+            width: 100%;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        /* Stiluri de personalizare pentru SVG-ul randat */
+        svg {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #4b5563;
+        }
+
+        #diagram-code {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Diagrama de Clase Premium — Untold Festival App</h1>
+        <p>Arhitectura de date de înaltă performanță (Admin Dashboard + Attendee App) cu Player Melodii & Clash-Detector</p>
+    </header>
+
+    <div class="instructions">
+        <span>💡 <strong>Sfat pentru Zoom:</strong> Folosește scurtăturile browser-ului <strong>Ctrl + Rotiță Mouse</strong> sau <strong>Ctrl + Plus (+) / Minus (-)</strong> pentru a mări/micșora diagrama fără a pierde din claritate.</span>
+    </div>
+
+    <div class="diagram-container">
+        <!-- Secțiunea unde se afișează eroarea exactă dacă Mermaid dă rateu -->
+        <div id="error-display"></div>
+
+        <!-- Containerul de randare pentru diagramă -->
+        <div id="diagram-render-container" style="width: 100%;"></div>
+    </div>
+
+    <!-- Codul sursă brut al diagramei Mermaid (Premium WOW logic, adaptat perfect la noul Pull de pe Main) -->
+    <pre id="diagram-code">
+classDiagram
+    direction TB
+
+    %% ==========================================
+    %% --- ENUMERATIONS (Tipuri de date) ---
+    %% ==========================================
+    class UserType {
+        <<enumeration>>
+        ADMIN
+        PARTNER
+        ATTENDEE
+    }
+
+    class OrderType {
+        <<enumeration>>
+        TICKET_PURCHASE
+        TOP_UP
+    }
+
+    class DocumentType {
+        <<enumeration>>
+        NATIONAL_ID
+        PASSPORT
+        DRIVERS_LICENSE
+        OTHER
+    }
+
+    class TicketType {
+        <<enumeration>>
+        GA_4_DAYS_PHASE_5
+        GA_4_DAYS_UNDER_25_PHASE_2
+        VIP_MAINSTAGE_4_DAYS_PHASE_3
+        GALAXY_BACKSTAGE_4_DAYS
+        VIP_ULTIMATE_EXPERIENCE
+        GA_4_DAYS_FRIENDSHIP_PACK_2
+        GA_4_DAYS_FRIENDSHIP_PACK_3
+        GA_4_DAYS_FRIENDSHIP_PACK_4
+        GA_DAY_1_PHASE_2
+        GA_DAY_2_PHASE_2
+        GA_DAY_3_PHASE_2
+        GA_DAY_4_PHASE_2
+        VIP_MAINSTAGE_DAY_1_PHASE_2
+        VIP_MAINSTAGE_DAY_2_PHASE_2
+        VIP_MAINSTAGE_DAY_3_PHASE_2
+        VIP_MAINSTAGE_DAY_4_PHASE_2
+    }
+
+    class PerformanceStatus {
+        <<enumeration>>
+        SCHEDULED
+        ONGOING
+        COMPLETED
+        CANCELLED
+    }
+
+    class DensityLevel {
+        <<enumeration>>
+        LOW
+        MEDIUM
+        HIGH
+        OVERCROWDED
+    }
+
+    class SOSType {
+        <<enumeration>>
+        MEDICAL
+        SECURITY
+        FIRE
+    }
+
+    %% ==========================================
+    %% --- CODRU ACTUALIZAT JAVASCRIPT / JPA ---
+    %% ==========================================
+    class User {
+        +Long id
+        +String username
+        +String email
+        +String password
+        +UserType userType
+    }
+
+    class Person {
+        +Long id
+        +String firstName
+        +String lastName
+        +LocalDate dateOfBirth
+        +String gender
+        +String country
+        +String city
+        +DocumentType documentType
+        +String documentId
+        +String phoneNumber
+    }
+
+    class AppOrder {
+        +Long id
+        +OrderType orderType
+        +Double amountPaid
+        +LocalDateTime purchaseDate
+    }
+
+    class Ticket {
+        +Long id
+        +TicketType ticketType
+        +Double price
+        +LocalDateTime purchaseDate
+        +boolean checkInCompleted
+    }
+
+    class Bracelet {
+        +Long id
+        +String rfidTag
+        +Double balance
+    }
+
+    %% ==========================================
+    %% --- SCENE, ARTIȘTI & PLAYLIST MELODII ---
+    %% ==========================================
+    class Stage {
+        +Long id
+        +String name
+        +Integer capacity
+        +String locationDescription
+        +Double latitude
+        +Double longitude
+        +Double radiusMeters
+    }
+
+    class Artist {
+        +Long id
+        +String name
+        +String genre
+        +String biography
+        +String imageUrl
+        +String spotifyId
+    }
+
+    class Song {
+        +Long id
+        +String title
+        +Integer durationSeconds
+        +String spotifyId
+        +String previewUrl
+    }
+
+    class Performance {
+        +Long id
+        +LocalDateTime startTime
+        +LocalDateTime endTime
+        +PerformanceStatus status
+    }
+
+    %% ==========================================
+    %% --- FAVORITE, CALENDAR & AGLEMERATIE ---
+    %% ==========================================
+    class UserFavorite {
+        +Long id
+        +Boolean pushEnabled
+    }
+
+    class PersonalScheduleSlot {
+        +Long id
+        +Boolean hasOverlapConflict
+        +Integer alarmOffsetMinutes
+    }
+
+    class StageCrowdReport {
+        +Long id
+        +DensityLevel reportedDensity
+        +LocalDateTime timestamp
+    }
+
+    class SOSAlert {
+        +Long id
+        +LocalDateTime timestamp
+        +Double latitude
+        +Double longitude
+        +SOSType type
+        +Boolean resolved
+    }
+
+    %% ==========================================
+    %% --- RELAȚII ÎNTRE ENTITĂȚI ---
+    %% ==========================================
+    User "1" --> "*" AppOrder : plaseaza comenzi
+    AppOrder "*" --> "1" Ticket : contine biletul cumparat
+    Ticket "1" --> "*" AppOrder : are comenzi asociate
+    Ticket "1" --> "0..1" Person : are ca posesor (attendee)
+    Ticket "1" <--> "0..1" Bracelet : este asociat la bratara (rfid/token)
+    
+    Stage "1" --> "*" Performance : gazduieste evenimente
+    Artist "1" --> "*" Performance : canta in
+    Performance "*" --> "1" Artist : are ca invitat
+    Performance "*" --> "1" Stage : are loc pe
+    Artist "1" --> "*" Song : are in playlistul de melodii (Audio preview)
+
+    User "1" --> "*" UserFavorite : selecteaza favoriti
+    UserFavorite "*" --> "1" Artist : indica artistul preferat
+
+    User "1" --> "*" PersonalScheduleSlot : isi organizeaza calendarul (Clash Detector)
+    PersonalScheduleSlot "*" --> "1" Performance : asociaza slotul de timp
+    
+    User "1" --> "*" StageCrowdReport : raporteaza aglomeratia
+    StageCrowdReport "*" --> "1" Stage : indica scena monitorizata
+
+    User "1" --> "*" SOSAlert : trimite semnale de urgenta GPS
+    </pre>
+
+    <script>
+        // Inițializăm Mermaid manual
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            themeVariables: {
+                background: '#111827',
+                primaryColor: '#38bdf8',
+                primaryTextColor: '#f8fafc',
+                lineColor: '#6366f1',
+                secondaryColor: '#1f2937',
+                tertiaryColor: '#111827'
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const codeElement = document.getElementById('diagram-code');
+            const code = codeElement.textContent.trim();
+            const container = document.getElementById('diagram-render-container');
+            const errorDisplay = document.getElementById('error-display');
+
+            try {
+                const { svg } = await mermaid.render('rendered-svg', code);
+                container.innerHTML = svg;
+                errorDisplay.style.display = 'none';
+            } catch (err) {
+                console.error("Mermaid Render Error:", err);
+                errorDisplay.style.display = 'block';
+                errorDisplay.textContent = `❌ Eroare detectată în codul Mermaid! \n\nDetalii:\n${err.message || err}`;
+            }
+        });
+    </script>
+
+    <div class="footer">
+        Untold Festival App Project • Standalone UML Class Diagram
+    </div>
+
+</body>
+</html>

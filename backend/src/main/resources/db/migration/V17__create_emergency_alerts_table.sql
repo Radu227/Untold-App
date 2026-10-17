@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS emergency_alerts (
+    id BIGSERIAL PRIMARY KEY,
+    service_type VARCHAR(50) NOT NULL,
+    pin_id BIGINT NOT NULL,
+    pin_name VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'PENDING',
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_emergency_alerts_pin FOREIGN KEY (pin_id) REFERENCES map_pins (id) ON DELETE CASCADE
+);

@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS staff_members (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT REFERENCES users(id) ON DELETE SET NULL,
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(100) NOT NULL,
+    dept VARCHAR(50) NOT NULL,
+    zone VARCHAR(100) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    avatar TEXT
+);
