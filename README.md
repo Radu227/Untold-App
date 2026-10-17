@@ -13,6 +13,8 @@
 <p>UNTOLD is one of the largest and most highly acclaimed electronic music festivals in Europe, held annually in the heart of Transylvania, in Cluj-Napoca, Romania. Since its inception in 2015, the festival has continuously brought the world's most renowned DJs, live acts, and millions of fans together for a unique, magical experience.</p>
 
 <h2>About this Application</h2>
+<h2>Project Context & Team</h2>
+<p>This application was developed as a collaborative team project during a software engineering internship. I am hosting it on my personal repository to showcase the final ecosystem and my specific contributions to the project. Working in a team allowed us to implement industry-standard practices, including Git workflows and agile development.</p>
 <p>This is a comprehensive management and ticketing application built specifically for the UNTOLD Festival ecosystem. The architecture is designed to handle both the administrative needs of the organizers and the immersive experience of the festival participants.</p>
 
 <h3>Architecture Details:</h3>
@@ -39,6 +41,8 @@
 <p>UNTOLD este unul dintre cele mai mari și mai apreciate festivaluri de muzică electronică din Europa, desfășurat anual în inima Transilvaniei, la Cluj-Napoca, România. Încă de la prima ediție din 2015, festivalul a adus continuu cei mai renumiți DJ, trupe live și milioane de fani împreună pentru o experiență magică și unică.</p>
 
 <h2>Despre această Aplicație</h2>
+<h2>Contextul Proiectului & Echipa</h2>
+<p>Această aplicație a fost dezvoltată în echipă, în cadrul unui stagiu de practică. Am publicat proiectul pe repository-ul meu personal pentru a prezenta ecosistemul final și contribuțiile mele specifice. Lucrul în echipă ne-a permis să aplicăm standarde din industrie, inclusiv fluxuri de lucru Git și dezvoltare agilă.</p>
 <p>Aceasta este o aplicație completă de management și ticketing construită special pentru ecosistemul Festivalului UNTOLD. Arhitectura este concepută pentru a gestiona atât nevoile administrative ale organizatorilor, cât și experiența participanților la festival.</p>
 
 <h3>Detalii despre Arhitectură:</h3>
